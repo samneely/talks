@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Immutable.js</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Immutable.js
+
+---
+
+# What does it do?
+
+1. Provides immutable data structures for JavaScript
+    * JavaScript-first API
+    * Easily convert between JavaScript objects and Immutable.js data structures
+2. Simplifies working with frameworks that emphasize immutability
+    * React
+    * Redux
+
+---
+
+# What does immutable mean?
+
+1. Immutable data cannot be changed
+2. No mutations (changes to internal state) means fewer (and ideally, no) side effects
+
+## Alan Kay image
+
+---
+
+# Efficient Immutable Structures
+
+1. Types include List, Map, Set, etc.
+2. Use structural sharing via hash map tries
+    * Popularized by Clojure/Scala
+    * Minimizes need to copy or cache data
+
+---
+
+# Immutable List
+
+```javascript
+books = ['matthew', 'mark']
+immutableBooks = Immutable.List.of('matthew', 'mark')
+otherImmutableBooks = Immutable.List(books)
+
+# equality
+immutableBooks === books // false
+Immutable.is(immutableBooks, books) // false
+Immutable.is(immutableBooks, otherImmutableBooks) // true
+
+# retrieving items
+immutableBooks[0] // undefined
+immutableBooks.first() // 'matthew'
+immutableBooks.get(0) // 'matthew'
+
+# adding items
+immutableGospels = immutableBooks.push('luke', 'john')
+immutableBooks.get(2) // undefined
+immutableGospels.get(2) // 'luke'
+
+# to JavaScript
+gospels = immutableGospels.toJS() // ['matthew', 'mark', 'luke', 'john']
+
+# iterating
+```
+
+---
+
+# Immutable Map
+
+```javascript
+
+```
+
+    </textarea>
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
