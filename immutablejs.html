@@ -29,6 +29,8 @@ class: center, middle
 
 1. Provides immutable data structures for JavaScript
     * JavaScript-first API
+        - Mutative functions return new immutable collections
+        - Non-mutative functions return new immutable collections
     * Easily convert between JavaScript objects and Immutable.js data structures
 2. Simplifies working with frameworks that emphasize immutability
     * React
@@ -40,8 +42,6 @@ class: center, middle
 
 1. Immutable data cannot be changed
 2. No mutations (changes to internal state) means fewer (and ideally, no) side effects
-
-## Alan Kay image
 
 ---
 
@@ -78,8 +78,6 @@ immutableGospels.get(2) // 'luke'
 
 # to JavaScript
 gospels = immutableGospels.toJS() // ['matthew', 'mark', 'luke', 'john']
-
-# iterating
 ```
 
 ---
@@ -87,7 +85,24 @@ gospels = immutableGospels.toJS() // ['matthew', 'mark', 'luke', 'john']
 # Immutable Map
 
 ```javascript
+book = { title: 'matthew' }
+immutableBook = Immutable.Map('title', 'matthew')
+otherImmutableBook = Immutable.Map(book)
 
+# equality
+immutableBook === book // false
+Immutable.is(immutableBook, book) // false
+Immutable.is(immutableBook, otherImmutableBook) // true
+
+# retrieving items
+immutableBook[0] // undefined
+immutableBook.first() // 'matthew'
+immutableBook.get(0) // 'matthew'
+
+# merging maps and objects
+newBook = { title: 'john', testament: 'new' }
+newImmutableBook = immutableBook.merge(newBook)
+newImmutableBook.toJS() // Object {title: "john", testament: "new"}
 ```
 
     </textarea>
