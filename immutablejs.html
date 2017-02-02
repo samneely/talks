@@ -36,6 +36,8 @@ class: center, middle
     * React
     * Redux
 
+    <img style="width: 60%" src="http://photos2.meetupstatic.com/photos/event/3/b/e/1/600_451995329.jpeg" />
+
 ---
 
 # What does immutable mean?
@@ -50,13 +52,15 @@ class: center, middle
 # Efficient Immutable Structures
 
 1. Types include List, Map, Set, etc.
-2. Use structural sharing via hash map tries
+2. Uses structural sharing
     * Popularized by Clojure/Scala
     * Minimizes need to copy or cache data
 
-    <a href="http://moaazsidat.com/assets/react-immutable/02-BitmappedArrayTrie.gif">Bit Mapped Array Trie</a>
+    <img style="width: 75%" src="http://arqex.com/wp-content/uploads/2015/02/trees.png" />
+
+    [Bitmap Vector Trie - for Arrays](http://moaazsidat.com/assets/react-immutable/02-BitmappedArrayTrie.gif)
     <br />
-    <a href="http://moaazsidat.com/assets/react-immutable/02-BitmappedArrayTrie.gif">Hash Mapped Array Trie</a>
+    [Hash Array Mapped Trie - for Maps](http://moaazsidat.com/assets/react-immutable/02-BitmappedArrayTrie.gif)
 
 ---
 
@@ -110,6 +114,16 @@ newBook = { title: 'john', testament: 'new' }
 newImmutableBook = immutableBook.merge(newBook)
 newImmutableBook.toJS() // Object {title: "john", testament: "new"}
 ```
+
+---
+
+# Questions
+
+## References
+
+1. [Immutable Data and React](https://www.youtube.com/watch?v=I7IdS-PbEgI)
+2. [Immutable.js](https://facebook.github.io/immutable-js/)
+3. [Chai Immutable](https://github.com/astorije/chai-immutable)
 
     </textarea>
     <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
